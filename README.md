@@ -4,7 +4,8 @@
 
 Rollup/Vite does not provide [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments) like `/* vitePreFetch: true */` or `/* vitePreload: true */`, but there are scenarios where we need resource preloading.
 
-> [!TIP] This only works within import() statements.
+> [!TIP]
+> This only works within `import()` statements.
 
 ## Installation
 

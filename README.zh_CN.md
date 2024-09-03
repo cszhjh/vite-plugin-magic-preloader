@@ -4,7 +4,8 @@
 
 Rollup/Vite 没有提供类似 `/* vitePreFetch: true */` 或 `/* vitePreload: true */` 的 [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments), 但我们确实需要针对某些场景进行资源预加载
 
-> [!TIP] 仅在 `import()` 中生效
+> [!TIP]
+> 仅在 `import()` 中生效
 
 ## 安装
 
