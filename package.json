@@ -19,8 +19,8 @@
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
-      "import": "./dist/vite-plugin-bundle-prefetch.js",
-      "require": "./dist/vite-plugin-bundle-prefetch.umd.cjs"
+      "import": "./dist/vite-plugin-magic-preloader.js",
+      "require": "./dist/vite-plugin-magic-preloader.umd.cjs"
     }
   },
   "devDependencies": {

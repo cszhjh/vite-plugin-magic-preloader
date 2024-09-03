@@ -85,8 +85,8 @@ export default function magicPreloaderPlugin({
       const modules = extractPreloadModules(code);
       const preloadModules = await Promise.all(
         modules.map(async ({ moduleId, rel }) => {
-          // const moduleInfo = await this.resolve(moduleId, id);
-          return { moduleId: moduleId || '', rel };
+          const moduleInfo = await this.resolve(moduleId, id);
+          return { moduleId: moduleInfo?.id || '', rel };
         }),
       );
       dynamicImportModules.push(...preloadModules);
