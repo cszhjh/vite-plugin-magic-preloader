@@ -11,8 +11,9 @@
     "sourceMap": false,
     "noEmitOnError": true,
     "noUnusedParameters": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noEmit": true
   },
-  "include": ["lib"],
+  "include": ["src"],
   "exclude": ["**/dist", "**/node_modules", "**/test"]
 }

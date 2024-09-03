@@ -3,25 +3,39 @@
   "version": "0.1.0",
   "description": "A Vite plugin for preloading and prefetching",
   "private": false,
+  "author": "cszhjh",
+  "license": "ISC",
   "type": "module",
-  "main": "./lib/main.ts",
-  "types": "dist/main.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "preload",
+    "prefetch"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cszhjh/vite-plugin-magic-preloader"
+  },
+  "bugs": {
+    "url": "https://github.com/cszhjh/vite-plugin-magic-preloader/issues"
+  },
+  "homepage": "https://github.com/cszhjh/vite-plugin-magic-preloader/tree/main/#readme",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --p . && vite build"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "exports": {
-    ".": {
-      "types": "./dist/main.d.ts",
-      "import": "./dist/vite-plugin-magic-preloader.js",
-      "require": "./dist/vite-plugin-magic-preloader.umd.cjs"
-    }
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@babel/parser": "^7.25.6",
@@ -29,8 +43,9 @@
     "@rollup/pluginutils": "^5.1.0",
     "@types/babel__traverse": "^7.20.6",
     "@types/node": "^22.5.2",
+    "tslib": "^2.7.0",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2",
-    "vite-plugin-dts": "^4.1.0"
+    "vite": "^5.4.2"
   }
 }
