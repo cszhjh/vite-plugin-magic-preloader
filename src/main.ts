@@ -1,6 +1,6 @@
 import { type ResolvedConfig, type Plugin } from 'vite';
 import parser from '@babel/parser';
-import traverse from '@babel/traverse';
+import _traverse from '@babel/traverse';
 import { createFilter } from '@rollup/pluginutils';
 
 export interface PluginOptions {
@@ -12,6 +12,10 @@ interface PreloadModule {
   moduleId: string;
   rel: string;
 }
+
+type Traverse = { default: typeof _traverse };
+
+const traverse = (_traverse as unknown as Traverse).default;
 
 const magicComments = [
   {

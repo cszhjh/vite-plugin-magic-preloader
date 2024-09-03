@@ -37,10 +37,15 @@
     "build": "tsup",
     "prepublishOnly": "npm run build"
   },
-  "devDependencies": {
+  "peerDependencies": {
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
     "@babel/parser": "^7.25.6",
     "@babel/traverse": "^7.25.6",
-    "@rollup/pluginutils": "^5.1.0",
+    "@rollup/pluginutils": "^5.1.0"
+  },
+  "devDependencies": {
     "@types/babel__traverse": "^7.20.6",
     "@types/node": "^22.5.2",
     "tslib": "^2.7.0",
