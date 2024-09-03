@@ -1,0 +1,36 @@
+{
+  "name": "vite-plugin-magic-preloader",
+  "version": "0.1.0",
+  "description": "A Vite plugin for preloading and prefetching",
+  "private": false,
+  "type": "module",
+  "main": "./lib/main.ts",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --p . && vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/vite-plugin-bundle-prefetch.js",
+      "require": "./dist/vite-plugin-bundle-prefetch.umd.cjs"
+    }
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.25.6",
+    "@babel/traverse": "^7.25.6",
+    "@rollup/pluginutils": "^5.1.0",
+    "@types/babel__traverse": "^7.20.6",
+    "@types/node": "^22.5.2",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2",
+    "vite-plugin-dts": "^4.1.0"
+  }
+}
