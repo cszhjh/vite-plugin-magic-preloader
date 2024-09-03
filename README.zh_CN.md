@@ -32,10 +32,10 @@ export default defineConfig({
 
 ## 选项
 
-| 参数    | 类型                                       | 默认值                    | 说明             |
-| ------- | ------------------------------------------ | ------------------------- | ---------------- |
-| include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的依赖项 |
-| exclude | `string \| RegExp \| (string \| RegExp)[]` | `undefined`               | 排除的依赖项     |
+| 参数    | 类型                                       | 默认值                    | 说明           |
+| ------- | ------------------------------------------ | ------------------------- | -------------- |
+| include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的文件 |
+| exclude | `string \| RegExp \| (string \| RegExp)[]` | `undefined`               | 排除的文件     |
 
 ### include
 

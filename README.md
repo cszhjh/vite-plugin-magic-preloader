@@ -32,10 +32,10 @@ export default defineConfig({
 
 ## Options
 
-| Option  | Type                                       | Default                   | Description                 |
-| ------- | ------------------------------------------ | ------------------------- | --------------------------- |
-| include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | The dependencies to process |
-| exclude | `string \| RegExp \| (string \| RegExp)[]` | `undefined`               | The dependencies to exclude |
+| Option  | Type                                       | Default                   | Description      |
+| ------- | ------------------------------------------ | ------------------------- | ---------------- |
+| include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process |
+| exclude | `string \| RegExp \| (string \| RegExp)[]` | `undefined`               | Files to exclude |
 
 ### include
 
