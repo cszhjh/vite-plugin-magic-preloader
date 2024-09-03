@@ -4,7 +4,7 @@
   "description": "A Vite plugin for preloading and prefetching",
   "private": false,
   "author": "cszhjh",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
