@@ -15,7 +15,7 @@ yarn add vite-plugin-magic-preloader -D
 # npm
 npm install vite-plugin-magic-preloader -D
 # pnpm
-pnpm install vite-plugin-magic-preloader -D
+pnpm add vite-plugin-magic-preloader -D
 ```
 
 ## 使用
