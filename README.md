@@ -53,11 +53,11 @@ Specifies the dependencies to exclude. It supports string, regular expression, a
 const router = [
   {
     path: '/',
-    component: import(/* vitePrefetch: true */ './views/Home.vue'),
+    component: () => import(/* vitePrefetch: true */ './views/Home.vue'),
   },
   {
     path: '/about',
-    component: import(/* vitePreload: true */ './views/About.vue'),
+    component: () => import(/* vitePreload: true */ './views/About.vue'),
   },
 ];
 ```
