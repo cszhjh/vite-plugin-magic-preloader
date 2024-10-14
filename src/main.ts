@@ -65,7 +65,7 @@ function extractPreloadModules(code: string) {
 
 export default function magicPreloaderPlugin({
   include = /\.(js|ts|jsx|tsx)$/,
-  exclude,
+  exclude = /node_modules/,
 }: PluginOptions = {}): Plugin {
   const dynamicImportModules: PreloadModule[] = [];
   const preloadBundles: PreloadModule[] = [];
@@ -81,7 +81,7 @@ export default function magicPreloaderPlugin({
     },
 
     async transform(code, id) {
-      if (id.includes('node_modules') || !filter(id)) {
+      if (!filter(id)) {
         return;
       }
 
