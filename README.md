@@ -2,7 +2,7 @@
 
 **English** | [中文](./README.zh_CN.md)
 
-Rollup/Vite does not provide [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments) like `/* vitePreFetch: true */` or `/* vitePreload: true */`, but there are scenarios where we need resource preloading.
+Rollup/Vite does not provide [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments) like `/* vitePrefetch: true */` or `/* vitePreload: true */`, but there are scenarios where we need resource preloading.
 
 > [!TIP]
 > This only works within `import()` statements.
@@ -23,10 +23,10 @@ pnpm add vite-plugin-magic-preloader -D
 - Configure the plugin in vite.config.ts
 
 ```ts
-import MagicPreloader from 'vite-plugin-magic-preloader';
+import magicPreloader from 'vite-plugin-magic-preloader';
 
 export default defineConfig({
-  plugins: [MagicPreloader()],
+  plugins: [magicPreloader()],
 });
 ```
 
@@ -35,7 +35,7 @@ export default defineConfig({
 | Option  | Type                                       | Default                   | Description      |
 | ------- | ------------------------------------------ | ------------------------- | ---------------- |
 | include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process |
-| exclude | `string \| RegExp \| (string \| RegExp)[]` | `undefined`               | Files to exclude |
+| exclude | `string \| RegExp \| (string \| RegExp)[]` | `/node_modules/`          | Files to exclude |
 
 ### include
 
@@ -66,9 +66,9 @@ If you need this plugin to work within Vue SFC, make sure that `vite-plugin-magi
 
 ```ts
 import Vue from '@vitejs/plugin-vue';
-import MagicPreloader from 'vite-plugin-magic-preloader';
+import magicPreloader from 'vite-plugin-magic-preloader';
 
 export default defineConfig({
-  plugins: [Vue(), MagicPreloader()],
+  plugins: [Vue(), magicPreloader()],
 });
 ```

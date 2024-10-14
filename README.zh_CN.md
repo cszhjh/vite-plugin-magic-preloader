@@ -2,7 +2,7 @@
 
 **中文** | [English](./README.md)
 
-Rollup/Vite 没有提供类似 `/* vitePreFetch: true */` 或 `/* vitePreload: true */` 的 [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments), 但我们确实需要针对某些场景进行资源预加载
+Rollup/Vite 没有提供类似 `/* vitePrefetch: true */` 或 `/* vitePreload: true */` 的 [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments), 但我们确实需要针对某些场景进行资源预加载
 
 > [!TIP]
 > 仅在 `import()` 中生效
@@ -23,10 +23,10 @@ pnpm add vite-plugin-magic-preloader -D
 - vite.config.ts 中配置插件
 
 ```ts
-import MagicPreloader from 'vite-plugin-magic-preloader';
+import magicPreloader from 'vite-plugin-magic-preloader';
 
 export default defineConfig({
-  plugins: [MagicPreloader()],
+  plugins: [magicPreloader()],
 });
 ```
 
@@ -35,7 +35,7 @@ export default defineConfig({
 | 参数    | 类型                                       | 默认值                    | 说明           |
 | ------- | ------------------------------------------ | ------------------------- | -------------- |
 | include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的文件 |
-| exclude | `string \| RegExp \| (string \| RegExp)[]` | `undefined`               | 排除的文件     |
+| exclude | `string \| RegExp \| (string \| RegExp)[]` | `/node_modules/`          | 排除的文件     |
 
 ### include
 
@@ -66,9 +66,9 @@ const router = [
 
 ```ts
 import Vue from '@vitejs/plugin-vue';
-import MagicPreloader from 'vite-plugin-magic-preloader';
+import magicPreloader from 'vite-plugin-magic-preloader';
 
 export default defineConfig({
-  plugins: [Vue(), MagicPreloader()],
+  plugins: [Vue(), magicPreloader()],
 });
 ```
