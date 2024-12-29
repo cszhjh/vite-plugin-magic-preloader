@@ -32,10 +32,11 @@ export default defineConfig({
 
 ## Options
 
-| Option  | Type                                       | Default                   | Description      |
-| ------- | ------------------------------------------ | ------------------------- | ---------------- |
-| include | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process |
-| exclude | `string \| RegExp \| (string \| RegExp)[]` | `/node_modules/`          | Files to exclude |
+| Option      | Type                                       | Default                   | Description                 |
+| ----------- | ------------------------------------------ | ------------------------- | --------------------------- |
+| include     | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process            |
+| exclude     | `string \| RegExp \| (string \| RegExp)[]` | `/node_modules/`          | Files to exclude            |
+| crossorigin | `boolean`                                  | `true`                    | is it enabled `crossorigin` |
 
 ### include
 

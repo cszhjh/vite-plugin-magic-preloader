@@ -1,71 +1,13 @@
 import { type ResolvedConfig, type Plugin } from 'vite';
-import parser from '@babel/parser';
-import _traverse from '@babel/traverse';
 import { createFilter } from '@rollup/pluginutils';
-
-export interface PluginOptions {
-  include?: string | RegExp | (string | RegExp)[];
-  exclude?: string | RegExp | (string | RegExp)[];
-}
-
-interface PreloadModule {
-  moduleId: string;
-  rel: string;
-}
-
-type Traverse = { default: typeof _traverse };
-
-const traverse = (_traverse as unknown as Traverse).default;
-
-const magicComments = [
-  {
-    comment: 'vitePrefetch: true',
-    rel: 'prefetch',
-  },
-  {
-    comment: 'vitePreload: true',
-    rel: 'preload',
-  },
-];
-
-function extractPreloadModules(code: string) {
-  const dynamicImportModules: PreloadModule[] = [];
-  const ast = parser.parse(code, {
-    sourceType: 'module',
-    plugins: ['jsx', 'typescript', 'dynamicImport'],
-  });
-
-  traverse(ast, {
-    CallExpression: path => {
-      if (path.node.callee.type !== 'Import' || !path.node.arguments.length) {
-        return;
-      }
-
-      const {
-        type,
-        leadingComments,
-        value = '',
-      } = path.node.arguments[0] as (typeof path.node.arguments)[0] & { value: string };
-
-      if (
-        type === 'StringLiteral' &&
-        leadingComments?.length &&
-        leadingComments[0].type === 'CommentBlock'
-      ) {
-        const magicComment = magicComments.find(
-          ({ comment }) => comment === leadingComments[0].value.trim(),
-        );
-        magicComment && dynamicImportModules.push({ moduleId: value, rel: magicComment.rel });
-      }
-    },
-  });
-
-  return dynamicImportModules;
-}
+import MagicString from 'magic-string';
+import { extractPreloadModules } from './utils';
+import type { PluginOptions, PreloadModule } from './types';
 
 export default function magicPreloaderPlugin({
   include = /\.(js|ts|jsx|tsx)$/,
   exclude = /node_modules/,
+  crossorigin = true,
 }: PluginOptions = {}): Plugin {
   const dynamicImportModules: PreloadModule[] = [];
   const preloadBundles: PreloadModule[] = [];
@@ -82,9 +24,10 @@ export default function magicPreloaderPlugin({
 
     async transform(code, id) {
       if (!filter(id)) {
-        return;
+        return null;
       }
 
+      const magicString = new MagicString(code);
       const modules = extractPreloadModules(code);
       const preloadModules = await Promise.all(
         modules.map(async ({ moduleId, rel }) => {
@@ -93,33 +36,37 @@ export default function magicPreloaderPlugin({
         }),
       );
       dynamicImportModules.push(...preloadModules);
-      return code;
+      return {
+        code: magicString.toString(),
+        map: magicString.generateMap({ source: id, includeContent: true }),
+      };
     },
 
     async generateBundle(_, bundle) {
-      Object.keys(bundle).forEach(async fileName => {
+      for (const fileName of Object.keys(bundle)) {
         const file = bundle[fileName];
         if (file.type !== 'chunk') {
-          return;
+          continue;
         }
 
-        const module = dynamicImportModules.find(
-          ({ moduleId }) => moduleId === file.facadeModuleId,
-        );
+        const module = dynamicImportModules.find(({ moduleId }) => moduleId === file.facadeModuleId);
         module && preloadBundles.push({ moduleId: fileName, rel: module.rel });
-      });
+      }
     },
 
     async transformIndexHtml(html) {
-      const reg = /<head>([\s\S]*)<\/head>/;
-      const headContent = html.match(reg)?.[1] ?? '';
-      const preloadBundlesString = preloadBundles
-        .map(({ moduleId, rel }) => {
-          return `<link rel="${rel}" href="${config.base}${moduleId}" />\n`;
-        })
-        .join('');
-      const newHeadContent = `${headContent}${preloadBundlesString}`;
-      return html.replace(reg, `<head>${newHeadContent}</head>`);
+      return {
+        html,
+        tags: preloadBundles.map(({ rel, moduleId }) => ({
+          tag: 'link',
+          injectTo: 'head',
+          attrs: {
+            rel,
+            href: `${config.base}${moduleId}`,
+            ...(crossorigin ? { crossorigin: true } : {}),
+          },
+        })),
+      };
     },
   };
 }
