@@ -9,7 +9,7 @@ export default function magicPreloaderPlugin({
   exclude = /node_modules/,
   crossorigin = true,
 }: PluginOptions = {}): Plugin {
-  const dynamicImportModules: PreloadModule[] = [];
+  const dynamicImportModuleMap: Map<string | undefined | null, string> = new Map();
   const preloadBundles: PreloadModule[] = [];
   const filter = createFilter(include, exclude);
 
@@ -28,14 +28,21 @@ export default function magicPreloaderPlugin({
       }
 
       const magicString = new MagicString(code);
+
       const modules = extractPreloadModules(code);
-      const preloadModules = await Promise.all(
-        modules.map(async ({ moduleId, rel }) => {
-          const moduleInfo = await this.resolve(moduleId, id);
-          return { moduleId: moduleInfo?.id || '', rel };
-        }),
+      const resolvedModules = await Promise.allSettled(
+        modules.map(({ moduleId }) => this.resolve(moduleId, id))
       );
-      dynamicImportModules.push(...preloadModules);
+      resolvedModules.forEach((result, index) => {
+        const { moduleId, rel } = modules[index];
+
+        if (result.status === 'fulfilled') {
+          dynamicImportModuleMap.set(result.value?.id, rel);
+        } else {
+          this.error(`Failed to resolve module: ${moduleId}. The reason is: ${result.reason}`);
+        }
+      });
+
       return {
         code: magicString.toString(),
         map: magicString.generateMap({ source: id, includeContent: true }),
@@ -43,14 +50,16 @@ export default function magicPreloaderPlugin({
     },
 
     async generateBundle(_, bundle) {
-      for (const fileName of Object.keys(bundle)) {
-        const file = bundle[fileName];
+      const bundleEntries = Object.entries(bundle);
+      for (const [fileName, file] of bundleEntries) {
         if (file.type !== 'chunk') {
           continue;
         }
 
-        const module = dynamicImportModules.find(({ moduleId }) => moduleId === file.facadeModuleId);
-        module && preloadBundles.push({ moduleId: fileName, rel: module.rel });
+        const rel = dynamicImportModuleMap.get(file.facadeModuleId);
+        if (rel) {
+          preloadBundles.push({ moduleId: fileName, rel });
+        }
       }
     },
 
