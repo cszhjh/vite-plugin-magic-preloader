@@ -1,20 +1,25 @@
 {
   "name": "vite-plugin-magic-preloader",
   "version": "1.0.3",
-  "description": "A Vite plugin for preloading and prefetching",
   "private": false,
-  "author": "cszhjh",
-  "license": "MIT",
-  "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "description": "A Vite plugin for preloading and prefetching",
   "keywords": [
     "vite",
     "vite-plugin",
     "preload",
     "prefetch"
   ],
+  "homepage": "https://github.com/cszhjh/vite-plugin-magic-preloader/tree/main/#readme",
+  "bugs": {
+    "url": "https://github.com/cszhjh/vite-plugin-magic-preloader/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cszhjh/vite-plugin-magic-preloader.git"
+  },
+  "license": "MIT",
+  "author": "cszhjh",
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -22,23 +27,15 @@
       "require": "./dist/index.cjs"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cszhjh/vite-plugin-magic-preloader.git"
-  },
-  "bugs": {
-    "url": "https://github.com/cszhjh/vite-plugin-magic-preloader/issues"
-  },
-  "homepage": "https://github.com/cszhjh/vite-plugin-magic-preloader/tree/main/#readme",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsup",
     "release": "pnpm build && vr release"
-  },
-  "peerDependencies": {
-    "vite": ">=2.0.0"
   },
   "dependencies": {
     "@babel/parser": "^7.25.6",
@@ -54,5 +51,8 @@
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
     "vite": "^2.9.18"
+  },
+  "peerDependencies": {
+    "vite": ">=2.0.0"
   }
 }
