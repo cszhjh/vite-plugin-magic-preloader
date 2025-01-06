@@ -66,10 +66,10 @@ const router = [
 若需要在 Vue 单文件组件中也使插件生效，请确保 `vite-plugin-magic-preloader` 在 `@vitejs/plugin-vue` 插件之后加载
 
 ```ts
-import Vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue';
 import magicPreloader from 'vite-plugin-magic-preloader';
 
 export default defineConfig({
-  plugins: [Vue(), magicPreloader()],
+  plugins: [vue(), magicPreloader()],
 });
 ```

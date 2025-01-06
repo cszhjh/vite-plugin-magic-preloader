@@ -66,10 +66,10 @@ const router = [
 If you need this plugin to work within Vue SFC, make sure that `vite-plugin-magic-preloader` is loaded after the `@vitejs/plugin-vue` plugin.
 
 ```ts
-import Vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue';
 import magicPreloader from 'vite-plugin-magic-preloader';
 
 export default defineConfig({
-  plugins: [Vue(), magicPreloader()],
+  plugins: [vue(), magicPreloader()],
 });
 ```
