@@ -1,0 +1,57 @@
+{
+  "name": "vite-plugin-magic-preloader",
+  "version": "1.0.4",
+  "private": false,
+  "description": "A Vite plugin for preloading and prefetching",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "preload",
+    "prefetch"
+  ],
+  "homepage": "https://github.com/cszhjh/vite-plugin-magic-preloader/tree/main/#readme",
+  "bugs": {
+    "url": "https://github.com/cszhjh/vite-plugin-magic-preloader/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cszhjh/vite-plugin-magic-preloader.git"
+  },
+  "license": "MIT",
+  "author": "cszhjh",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "release": "pnpm build && vr release"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.25.6",
+    "@babel/traverse": "^7.25.6",
+    "@rollup/pluginutils": "^5.1.0",
+    "magic-string": "^0.30.17"
+  },
+  "devDependencies": {
+    "@types/babel__traverse": "^7.20.6",
+    "@types/node": "^22.5.2",
+    "@varlet/release": "^0.3.2",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "vite": "^2.9.18"
+  },
+  "peerDependencies": {
+    "vite": ">=2.0.0"
+  }
+}
