@@ -1,9 +1,8 @@
-import { fileURLToPath, URL } from 'node:url';
-
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vueJsx from '@vitejs/plugin-vue-jsx';
-import magicPreloader from 'vite-plugin-magic-preloader';
+import { fileURLToPath, URL } from 'node:url'
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
+import { defineConfig } from 'vite'
+import magicPreloader from 'vite-plugin-magic-preloader'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,14 +20,14 @@ export default defineConfig({
       output: {
         manualChunks(id: string) {
           if (id.includes('src/utils/utils-')) {
-            return 'utils';
+            return 'utils'
           }
 
           if (id.includes('node_modules/lodash-es')) {
-            return 'lodash';
+            return 'lodash'
           }
         },
       },
     },
   },
-});
+})

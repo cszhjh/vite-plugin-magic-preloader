@@ -1,4 +1,4 @@
-import { createWebHashHistory, createRouter } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const HomeRouter = () => import(/* vitePrefetch: true */ '@/views/home/home-router.vue')
 const AboutRouter = () => import(/* vitePrefetch: true */ '@/views/about/about-router.vue')
@@ -6,12 +6,12 @@ const AboutRouter = () => import(/* vitePrefetch: true */ '@/views/about/about-r
 const routes = [
   { path: '/', redirect: '/home' },
   { path: '/home', component: HomeRouter },
-  { path: '/about', component: AboutRouter }
+  { path: '/about', component: AboutRouter },
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 })
 
 export default router

@@ -1,6 +1,11 @@
 {
   "private": true,
   "scripts": {
+    "format": "prettier --write .",
     "release": "pnpm --dir packages/core release"
+  },
+  "devDependencies": {
+    "@configurajs/prettier": "^0.0.2",
+    "prettier": "^3.2.5"
   }
 }

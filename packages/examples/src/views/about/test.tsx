@@ -11,7 +11,7 @@ const TestComponent = defineComponent({
         <p>This is a simple component using JSX in Vue.js</p>
       </div>
     )
-  }
+  },
 })
 
 export default TestComponent

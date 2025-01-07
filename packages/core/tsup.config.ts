@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: {
@@ -8,4 +8,4 @@ export default defineConfig({
   clean: true,
   format: ['esm', 'cjs'],
   dts: true,
-});
+})
