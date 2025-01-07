@@ -1,20 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import * as echarts from 'echarts'
-
+import { onMounted, ref } from 'vue'
 import { Button as VarButton } from '@varlet/ui'
+import * as echarts from 'echarts'
+import { useRouter } from 'vue-router'
 import '@varlet/ui/es/button/style/index.mjs'
-
-import HelloWorld from '@/views/home/components/HelloWorld.vue'
-import TheWelcome from '@/views/home/components/TheWelcome.vue'
-
 import { isNotEmptyArray } from '@/utils/utils-array'
 import { clamp } from '@/utils/utils-number'
 import { camelize } from '@/utils/utils-string'
+import HelloWorld from '@/views/home/components/HelloWorld.vue'
+import TheWelcome from '@/views/home/components/TheWelcome.vue'
 
 defineOptions({
-  name: 'HomeRouter'
+  name: 'HomeRouter',
 })
 
 const arr = ref([1])
@@ -23,7 +20,7 @@ const router = useRouter()
 
 function navigateToAboutPage() {
   router.push({
-    path: '/about'
+    path: '/about',
   })
 }
 
@@ -34,17 +31,17 @@ onMounted(() => {
   const option = {
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
     },
     series: [
       {
         data: [120, 200, 150, 80, 70, 110, 130],
-        type: 'bar'
-      }
-    ]
+        type: 'bar',
+      },
+    ],
   }
 
   option && myChart.setOption(option)
@@ -56,9 +53,7 @@ onMounted(() => {
 
 <template>
   <h1 v-if="isNotEmptyArray(arr)">hhhhh</h1>
-  <VarButton type="primary" style="width: 150px" @click="navigateToAboutPage"
-    >go to about page</VarButton
-  >
+  <VarButton type="primary" style="width: 150px" @click="navigateToAboutPage">go to about page</VarButton>
   <div id="main" style="width: 600px; height: 400px"></div>
   <header>
     <img alt="Vue logo" class="logo" src="../../assets/logo.svg" width="125" height="125" />
