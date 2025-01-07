@@ -39,7 +39,9 @@ export function extractPreloadModules(code: string) {
         .filter((comment) => comment.type === 'CommentBlock')
         .forEach((comment) => {
           const rel = magicCommentMap.get(comment.value.trim())
-          rel && dynamicImportModules.push({ moduleId: value, rel })
+          if (rel) {
+            dynamicImportModules.push({ moduleId: value, rel })
+          }
         })
     },
   })

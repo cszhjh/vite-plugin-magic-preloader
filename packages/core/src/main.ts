@@ -18,7 +18,7 @@ export default function magicPreloaderPlugin({
   return {
     name: 'vite-plugin-magic-preloader',
 
-    async configResolved(resolvedConfig) {
+    configResolved(resolvedConfig) {
       config = resolvedConfig
     },
 
@@ -47,7 +47,7 @@ export default function magicPreloaderPlugin({
       }
     },
 
-    async generateBundle(_, bundle) {
+    generateBundle(_, bundle) {
       const bundleEntries = Object.entries(bundle)
       for (const [fileName, file] of bundleEntries) {
         if (file.type !== 'chunk') {
@@ -61,7 +61,7 @@ export default function magicPreloaderPlugin({
       }
     },
 
-    async transformIndexHtml(html) {
+    transformIndexHtml(html) {
       return {
         html,
         tags: preloadBundles.map(({ rel, moduleId }) => ({
@@ -69,8 +69,8 @@ export default function magicPreloaderPlugin({
           injectTo: 'head',
           attrs: {
             rel,
-            href: `${config.base}${moduleId}`,
             ...(crossorigin ? { crossorigin: true } : {}),
+            href: `${config.base}${moduleId}`,
           },
         })),
       }

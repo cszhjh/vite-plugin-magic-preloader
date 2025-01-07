@@ -44,7 +44,7 @@ onMounted(() => {
     ],
   }
 
-  option && myChart.setOption(option)
+  myChart.setOption(option)
 
   console.log(clamp(4, 3, 5))
   console.log(camelize('chouchouji'))
