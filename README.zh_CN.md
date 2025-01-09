@@ -34,8 +34,8 @@ export default defineConfig({
 
 | 参数        | 类型                                       | 默认值                    | 说明                   |
 | ----------- | ------------------------------------------ | ------------------------- | ---------------------- |
-| include     | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的文件         |
-| exclude     | `string \| RegExp \| (string \| RegExp)[]` | `/node_modules/`          | 排除的文件             |
+| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的文件         |
+| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/node_modules/`          | 排除的文件             |
 | crossorigin | `boolean`                                  | `true`                    | 是否启用 `crossorigin` |
 
 ### include
