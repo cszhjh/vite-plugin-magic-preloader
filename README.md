@@ -34,8 +34,8 @@ export default defineConfig({
 
 | Option      | Type                                       | Default                   | Description                 |
 | ----------- | ------------------------------------------ | ------------------------- | --------------------------- |
-| include     | `string \| RegExp \| (string \| RegExp)[]` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process            |
-| exclude     | `string \| RegExp \| (string \| RegExp)[]` | `/node_modules/`          | Files to exclude            |
+| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process            |
+| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/node_modules/`          | Files to exclude            |
 | crossorigin | `boolean`                                  | `true`                    | is it enabled `crossorigin` |
 
 ### include

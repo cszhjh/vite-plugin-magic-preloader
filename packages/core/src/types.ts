@@ -1,6 +1,8 @@
+import type { FilterPattern } from '@rollup/pluginutils'
+
 export interface PluginOptions {
-  include?: string | RegExp | (string | RegExp)[]
-  exclude?: string | RegExp | (string | RegExp)[]
+  include?: FilterPattern
+  exclude?: FilterPattern
   crossorigin?: boolean
 }
 
