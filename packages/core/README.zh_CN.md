@@ -42,7 +42,7 @@ export default defineConfig({
 
 需要处理的依赖项，支持字符串、正则表达式、数组类型。默认情况下只处理不在 `node_modules` 中的 `js, ts, jsx, tsx` 文件
 
-被命中的文件将会被当作 JavaScript 代码解析，请确保文件内容能被正确解析为 **AST Tree**
+被命中的文件将会被当作 JavaScript 代码解析，请确保文件内容能被正确解析为 **Abstract Syntax Tree**
 
 ### exclude
 

@@ -36,13 +36,13 @@ export default defineConfig({
 | ----------- | ------------------------------------------ | ------------------------- | --------------------------- |
 | include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process            |
 | exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/node_modules/`          | Files to exclude            |
-| crossorigin | `boolean`                                  | `true`                    | is it enabled `crossorigin` |
+| crossorigin | `boolean`                                  | `true`                    | Is it enabled `crossorigin` |
 
 ### include
 
 Specifies the dependencies to process. It supports string, regular expression, and array types. By default, only js, ts, jsx, tsx files that are not in node_modules are processed.
 
-Files that are matched will be parsed as JavaScript code. Please ensure that the content of these files can be correctly parsed into an AST Tree.
+Files that are matched will be parsed as JavaScript code. Please ensure that the content of these files can be correctly parsed into an **Abstract Syntax Tree**.
 
 ### exclude
 
