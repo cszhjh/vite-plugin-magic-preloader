@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/cszhjh/vite-plugin-magic-preloader/compare/v1.0.5...v1.1.0) (2025-10-04)
+
+
+### Features
+
+* support `attrs` option ([#21](https://github.com/cszhjh/vite-plugin-magic-preloader/issues/21)) ([bf2b6bc](https://github.com/cszhjh/vite-plugin-magic-preloader/commit/bf2b6bc8645aa9fd83a1efd40e3b54bb296f2142))
+
+
+
 ## [1.0.5](https://github.com/cszhjh/vite-plugin-magic-preloader/compare/v1.0.4...v1.0.5) (2025-02-12)
 
 
