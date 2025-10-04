@@ -70,7 +70,7 @@ export default function magicPreloaderPlugin({
           injectTo: 'head',
           attrs: {
             rel,
-            ...({crossorigin, ...attrs}),
+            ...({ crossorigin, ...attrs }),
             href: `${config.base}${moduleId}`,
           },
         })),
