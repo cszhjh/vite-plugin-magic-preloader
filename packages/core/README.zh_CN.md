@@ -74,3 +74,5 @@ export default defineConfig({
   plugins: [vue(), magicPreloader()],
 });
 ```
+
+基础示例可以参考 [这个链接](../examples/)
