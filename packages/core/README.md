@@ -74,3 +74,5 @@ export default defineConfig({
   plugins: [vue(), magicPreloader()],
 });
 ```
+
+You can refer to [this link](../examples/) for basic example.
