@@ -1,6 +1,6 @@
 import { createFilter } from '@rollup/pluginutils'
 import MagicString from 'magic-string'
-import { type Plugin, type ResolvedConfig } from 'vite'
+import type { Plugin, ResolvedConfig } from 'vite'
 import type { PluginOptions, PreloadModule } from './types'
 import { extractPreloadModules } from './utils'
 
@@ -70,7 +70,7 @@ export default function magicPreloaderPlugin({
           injectTo: 'head',
           attrs: {
             rel,
-            ...({ crossorigin, ...attrs }),
+            ...{ crossorigin, ...attrs },
             href: `${config.base}${moduleId}`,
           },
         })),

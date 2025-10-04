@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "vite build",
     "dev": "vite",
-    "preview": "vite preview",
-    "build": "vite build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@varlet/touch-emulator": "^3.3.16",

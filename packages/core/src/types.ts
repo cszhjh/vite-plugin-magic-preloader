@@ -6,7 +6,7 @@ export interface PluginOptions {
   /**
    * @deprecated
    */
-  crossorigin?: boolean,
+  crossorigin?: boolean
   attrs?: Record<string, string>
 }
 
