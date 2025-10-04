@@ -8,6 +8,7 @@ export default function magicPreloaderPlugin({
   include = /\.(js|ts|jsx|tsx)$/,
   exclude = /node_modules/,
   crossorigin = true,
+  attrs = {},
 }: PluginOptions = {}): Plugin {
   const dynamicImportModuleMap: Map<string | undefined | null, string> = new Map()
   const preloadBundles: PreloadModule[] = []
@@ -69,7 +70,7 @@ export default function magicPreloaderPlugin({
           injectTo: 'head',
           attrs: {
             rel,
-            ...(crossorigin ? { crossorigin: true } : {}),
+            ...({ crossorigin, ...attrs }),
             href: `${config.base}${moduleId}`,
           },
         })),
