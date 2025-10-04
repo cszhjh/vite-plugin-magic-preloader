@@ -3,7 +3,11 @@ import type { FilterPattern } from '@rollup/pluginutils'
 export interface PluginOptions {
   include?: FilterPattern
   exclude?: FilterPattern
-  crossorigin?: boolean
+  /**
+   * @deprecated
+   */
+  crossorigin?: boolean,
+  attrs?: Record<string, string>
 }
 
 export interface PreloadModule {

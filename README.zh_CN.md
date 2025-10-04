@@ -32,11 +32,12 @@ export default defineConfig({
 
 ## 选项
 
-| 参数        | 类型                                       | 默认值                    | 说明                   |
-| ----------- | ------------------------------------------ | ------------------------- | ---------------------- |
-| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的文件         |
-| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/node_modules/`          | 排除的文件             |
-| crossorigin | `boolean`                                  | `true`                    | 是否启用 `crossorigin` |
+| 参数        | 类型                                                          | 默认值                    | 说明                                                            |
+|-------------|---------------------------------------------------------------|---------------------------|---------------------------------------------------------------|
+| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/\.(js\|ts\|jsx\|tsx)$/` | 需要处理的文件                                                  |
+| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/node_modules/`          | 排除的文件                                                      |
+| crossorigin | `boolean`                                                     | `true`                    | 是否启用`crossorigin`，已弃用，请改用`attrs`中的`crossorigin`属性 |
+| attrs       | `Record<string, string>`                                      | `{}`                      | link标签附加属性                                                |
 
 ### include
 
