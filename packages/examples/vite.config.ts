@@ -7,7 +7,13 @@ import magicPreloader from 'vite-plugin-magic-preloader'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [vue(), vueJsx(), magicPreloader()],
+  plugins: [
+    vue(),
+    vueJsx(),
+    magicPreloader({
+      attrs: { as: 'script' },
+    }),
+  ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -16,7 +22,6 @@ export default defineConfig({
   build: {
     minify: false,
     rollupOptions: {
-      external: ['vue', 'echarts'],
       output: {
         manualChunks(id: string) {
           if (id.includes('src/utils/utils-')) {
