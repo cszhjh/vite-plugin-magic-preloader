@@ -65,15 +65,29 @@ export default function magicPreloaderPlugin({
     transformIndexHtml(html) {
       return {
         html,
-        tags: preloadBundles.map(({ rel, moduleId }) => ({
-          tag: 'link',
-          injectTo: 'head',
-          attrs: {
-            rel,
-            ...{ crossorigin, ...attrs },
-            href: `${config.base}${moduleId}`,
-          },
-        })),
+        tags: preloadBundles.map(({ rel, moduleId }) => {
+          const href = `${config.base}${moduleId}`
+          const _attrs: Record<string, string | boolean> = {
+            crossorigin,
+            ...(typeof attrs === 'function' ? attrs(href) : attrs),
+          }
+
+          for (const key in _attrs) {
+            if (!_attrs[key]) {
+              delete _attrs[key]
+            }
+          }
+
+          return {
+            tag: 'link',
+            injectTo: 'head',
+            attrs: {
+              ..._attrs,
+              rel,
+              href,
+            },
+          }
+        }),
       }
     },
   }

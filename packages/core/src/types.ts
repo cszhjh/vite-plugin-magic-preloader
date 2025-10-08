@@ -7,7 +7,7 @@ export interface PluginOptions {
    * @deprecated
    */
   crossorigin?: boolean
-  attrs?: Record<string, string>
+  attrs?: Record<string, string | boolean> | ((href: string) => Record<string, string | boolean>)
 }
 
 export interface PreloadModule {

@@ -32,12 +32,12 @@ export default defineConfig({
 
 ## Options
 
-| Option      | Type                                                          | Default                   | Description                                                                             |
-|-------------|---------------------------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------|
-| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process                                                                        |
-| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null` | `/node_modules/`          | Files to exclude                                                                        |
-| crossorigin | `boolean`                                                     | `true`                    | Is it enabled `crossorigin`, Deprecated, use `crossorigin` attribute in `attrs` instead |
-| attrs       | `Record<string, string>`                                      | `{}`                      | link tag additional attributes                                                          |
+| Option      | Type                                                                                         | Default                   | Description                                                                                                 |
+|-------------|----------------------------------------------------------------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------|
+| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null`                                | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process                                                                                            |
+| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null`                                | `/node_modules/`          | Files to exclude                                                                                            |
+| crossorigin | `boolean`                                                                                    | `true`                    | Is it enabled `crossorigin`, Deprecated, use `crossorigin` attribute in `attrs` instead                     |
+| attrs       | `Record<string, string \| boolean> \| ((href: string) => Record<string, string \| boolean>)` | `{}`                      | [link tag attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#attributes) |
 
 ### include
 

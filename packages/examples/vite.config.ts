@@ -11,7 +11,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     magicPreloader({
-      attrs: { as: 'script' },
+      attrs: { as: 'script', crossorigin: true },
     }),
   ],
   resolve: {
