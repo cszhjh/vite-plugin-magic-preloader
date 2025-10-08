@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/cszhjh/vite-plugin-magic-preloader/compare/v1.1.0...v1.1.1) (2025-10-08)
+
+
+### Features
+
+* `attrs` prop support function ([cdb6939](https://github.com/cszhjh/vite-plugin-magic-preloader/commit/cdb693993ef9113efbe88d2f0c019669fa0f4612))
+
+
+
 # [1.1.0](https://github.com/cszhjh/vite-plugin-magic-preloader/compare/v1.0.5...v1.1.0) (2025-10-04)
 
 
