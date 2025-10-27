@@ -9,16 +9,16 @@
     "preload",
     "prefetch"
   ],
-  "homepage": "https://github.com/cszhjh/vite-plugin-magic-preloader/tree/main/#readme",
+  "homepage": "https://github.com/rzzf/vite-plugin-magic-preloader/tree/main/#readme",
   "bugs": {
-    "url": "https://github.com/cszhjh/vite-plugin-magic-preloader/issues"
+    "url": "https://github.com/rzzf/vite-plugin-magic-preloader/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cszhjh/vite-plugin-magic-preloader.git"
+    "url": "git+https://github.com/rzzf/vite-plugin-magic-preloader.git"
   },
   "license": "MIT",
-  "author": "cszhjh",
+  "author": "rzzf",
   "type": "module",
   "exports": {
     ".": {
