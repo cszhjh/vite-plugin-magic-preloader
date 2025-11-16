@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-magic-preloader",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "description": "A Vite plugin for preloading and prefetching",
   "keywords": [
