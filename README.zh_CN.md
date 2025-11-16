@@ -75,3 +75,9 @@ export default defineConfig({
 ```
 
 基础示例可以参考 [这个链接](/packages/examples/)
+
+## 贡献者
+
+<a href="https://github.com/rzzf/vite-plugin-magic-preloader/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=rzzf/vite-plugin-magic-preloader" />
+</a>

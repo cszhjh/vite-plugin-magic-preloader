@@ -75,3 +75,9 @@ export default defineConfig({
 ```
 
 You can refer to [this link](../examples/) for basic example.
+
+## Contributors
+
+<a href="https://github.com/rzzf/vite-plugin-magic-preloader/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=rzzf/vite-plugin-magic-preloader" />
+</a>
