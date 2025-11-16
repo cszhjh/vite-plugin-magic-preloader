@@ -1,6 +1,8 @@
 {
   "private": true,
   "scripts": {
+    "build": "pnpm --dir packages/core build",
+    "dev": "pnpm --dir packages/core dev",
     "format": "prettier --write .",
     "lint": "eslint --fix .",
     "release": "pnpm --dir packages/core release"
