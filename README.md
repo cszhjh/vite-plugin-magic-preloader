@@ -1,6 +1,6 @@
 # vite-plugin-magic-preloader
 
-**English** | [中文](./README.zh_CN.md)
+**English** | [中文](/README.zh_CN.md)
 
 Rollup/Vite does not provide [Magic Comments](https://webpack.js.org/api/module-methods/#magic-comments) like `/* vitePrefetch: true */` or `/* vitePreload: true */`, but there are scenarios where we need resource preloading.
 
@@ -32,12 +32,11 @@ export default defineConfig({
 
 ## Options
 
-| Option      | Type                                                                                         | Default                   | Description                                                                                                 |
-|-------------|----------------------------------------------------------------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------|
-| include     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null`                                | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process                                                                                            |
-| exclude     | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null`                                | `/node_modules/`          | Files to exclude                                                                                            |
-| crossorigin | `boolean`                                                                                    | `true`                    | Is it enabled `crossorigin`, Deprecated, use `crossorigin` attribute in `attrs` instead                     |
-| attrs       | `Record<string, string \| boolean> \| ((href: string) => Record<string, string \| boolean>)` | `{}`                      | [link tag attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#attributes) |
+| Option  | Type                                                                                         | Default                   | Description                                                                                                 |
+|---------|----------------------------------------------------------------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------|
+| include | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null`                                | `/\.(js\|ts\|jsx\|tsx)$/` | Files to process                                                                                            |
+| exclude | `string \| RegExp \| ReadonlyArray<string \| RegExp> \| null`                                | `/node_modules/`          | Files to exclude                                                                                            |
+| attrs   | `Record<string, string \| boolean> \| ((href: string) => Record<string, string \| boolean>)` | `{ crossorigin: true }`   | [link tag attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/link#attributes) |
 
 ### include
 

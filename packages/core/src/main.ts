@@ -2,13 +2,14 @@ import { createFilter } from '@rollup/pluginutils'
 import MagicString from 'magic-string'
 import type { Plugin, ResolvedConfig } from 'vite'
 import type { PluginOptions, PreloadModule } from './types'
-import { extractPreloadModules } from './utils'
+import { extractPreloadModules, isFunction, isNil } from './utils'
+
+export type { PluginOptions }
 
 export default function magicPreloaderPlugin({
   include = /\.(js|ts|jsx|tsx)$/,
   exclude = /node_modules/,
-  crossorigin = true,
-  attrs = {},
+  attrs = { crossorigin: true },
 }: PluginOptions = {}): Plugin {
   const dynamicImportModuleMap: Map<string | undefined | null, string> = new Map()
   const preloadBundles: PreloadModule[] = []
@@ -67,14 +68,12 @@ export default function magicPreloaderPlugin({
         html,
         tags: preloadBundles.map(({ rel, moduleId }) => {
           const href = `${config.base}${moduleId}`
-          const _attrs: Record<string, string | boolean> = {
-            crossorigin,
-            ...(typeof attrs === 'function' ? attrs(href) : attrs),
-          }
+          const rawAttrs = isFunction(attrs) ? attrs(href) : attrs
+          const _attrs: Record<string, string | boolean> = {}
 
-          for (const key in _attrs) {
-            if (!_attrs[key]) {
-              delete _attrs[key]
+          for (const [key, val] of Object.entries(rawAttrs)) {
+            if (!isNil(val) && val !== false) {
+              _attrs[key] = val
             }
           }
 

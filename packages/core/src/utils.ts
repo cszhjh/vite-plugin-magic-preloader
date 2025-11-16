@@ -10,6 +10,14 @@ const magicCommentMap = new Map<string, string>()
   .set('vitePrefetch: true', 'prefetch')
   .set('vitePreload: true', 'preload')
 
+export function isFunction(val: unknown): val is Function {
+  return typeof val === 'function'
+}
+
+export function isNil(val: unknown): val is null | undefined {
+  return val == null
+}
+
 export function extractPreloadModules(code: string) {
   const dynamicImportModules: PreloadModule[] = []
   const ast = parser.parse(code, {
